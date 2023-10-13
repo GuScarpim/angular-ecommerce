@@ -1,39 +1,39 @@
-import { Component } from '@angular/core'
-import { FormGroup } from '@angular/forms'
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core'
+import * as yup from 'yup'
+
+import { Component, OnInit } from '@angular/core'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { YupValidationService } from '../../../../shared/services/yup.service'
 
 @Component({
-  selector: 'form-login',
-  template: './form-login.component.html',
-  styleUrls: ['./form-login.component.css']
+  selector: 'app-form-login',
+  templateUrl: './form-login.component.html',
+  styleUrls: ['./form-login.component.css'],
 })
-export class FormLoginComponent {
-  form = new FormGroup({});
-  model: any = {};
-  options: FormlyFormOptions = {};
-  fields: FormlyFieldConfig[] = [
-    {
-      key: 'email',
-      type: 'input',
-      templateOptions: {
-        label: 'Email',
-        placeholder: 'Insira o seu email',
-        type: 'text',
-      },
-    },
-    {
-      key: 'password',
-      type: 'input',
-      templateOptions: {
-        label: 'Senha',
-        placeholder: '******',
-        type: 'password',
-      },
-    },
-  ];
+export class FormLoginComponent implements OnInit {
+  form!: FormGroup
+
+  constructor(private fb: FormBuilder, private yupValidationService: YupValidationService) { }
+
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+    })
+
+    const emailControl = this.form.get('email')
+    if (emailControl) {
+      this.yupValidationService.addYupValidation(emailControl, yup.string().required('Email é obrigatório').email('Email inválido'))
+    }
+
+    const passwordControl = this.form.get('password')
+    if (passwordControl) {
+      this.yupValidationService.addYupValidation(passwordControl, yup.string().required('Senha é obrigatória'))
+    }
+  }
 
   onSubmit() {
-    // Lógica para manipular os dados após o envio do formulário
-    console.log(this.model)
+    if (this.form.valid) {
+      console.log(this.form.value)
+    }
   }
 }
