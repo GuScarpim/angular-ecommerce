@@ -1,5 +1,10 @@
+<ng-container *ngIf="isLoading">
+  <app-full-screen-loading></app-full-screen-loading>
+</ng-container>
+
 <section class="max-w-screen-md mx-auto p-6 md:p-12">
-  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <lib-toastify-toast-container></lib-toastify-toast-container>
+  <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
     <article class="flex flex-col gap-6 items-center">
       <div class="w-[400px] flex content-center justify-center">
         <img alt="FrutaFeira" src="../../../../assets/logo/logo.png" class="w-[100px] h-[100px] object-contain mb-8" />
