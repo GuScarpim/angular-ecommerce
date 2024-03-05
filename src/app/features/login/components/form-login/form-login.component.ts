@@ -33,7 +33,7 @@ export class FormLoginComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      console.log(this.form.value)
+      alert('ok')
     }
   }
 }
