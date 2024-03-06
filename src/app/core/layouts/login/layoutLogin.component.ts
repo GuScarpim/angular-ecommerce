@@ -5,4 +5,4 @@ import { Component } from '@angular/core'
   templateUrl: './layoutLogin.component.html',
   styleUrls: ['../../theme/theme.css']
 })
-export class LayoutComponent { }
+export class LayoutLoginComponent { }

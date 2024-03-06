@@ -1,0 +1,23 @@
+<div>
+  <!-- <Modal openModal={openModal} title="Fazer checkout" onClose={()=> setOpenModal(false)} /> -->
+  <div class="nav">
+    <div>
+      <div class="content-navbar">
+        <img class="right-logo" alt="FrutaFeira" src="../../../../../assets/logo/logo.png" />
+
+        <div class="content-input">
+          <input placeholder="O que está procurando?" type="text" data-testId="search-icon" />
+          <img class="icon-search" src="../../../../../assets/icons/search.svg" />
+        </div>
+
+        <!-- <User data-testId="user-component" /> -->
+
+        <div class="notification" (click)="setOpenModal">
+          <img src="../../../../../assets/icons/cart.svg" />
+          <span data-testId="cart-quantity">2</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <burger-menu></burger-menu>
+</div>

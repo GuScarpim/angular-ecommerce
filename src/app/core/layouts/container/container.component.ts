@@ -1,8 +1,8 @@
 import { Component } from '@angular/core'
 
 @Component({
-  selector: 'layoutLogin-layout',
-  templateUrl: './layoutLogin.component.html',
-  styleUrls: ['../../theme/theme.css']
+  selector: 'container-layout',
+  templateUrl: './container.component.html',
+  styleUrls: ['../../theme/theme.css', './container.component.css']
 })
-export class LayoutComponent { }
+export class LayoutContainerComponent { }

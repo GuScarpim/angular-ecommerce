@@ -1,0 +1,54 @@
+.content {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 50px;
+  font-size: 1.125rem;
+  background-color: #1D7D5A;
+  height: 100%;
+  width: 250px;
+  padding-top: 55px;
+  transition: transform 0.3s ease-in-out;
+  z-index: -1;
+}
+
+@media (max-width: 768px) {
+  .content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column nowrap;
+    transform: translateX(-130%);
+    /* Initial closed state */
+  }
+
+  .content.open {
+    /* Class added when open is true */
+    transform: translateX(-20%);
+    /* Open state transform */
+  }
+}
+
+.right-logo {
+  margin: 0px;
+  padding: 0px;
+  width: 60px;
+}
+
+.article {
+  display: flex;
+}
+
+.content-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+}
+
+.content-item img {
+  margin: 0;
+  padding: 0;
+  width: 80px;
+}
