@@ -27,7 +27,7 @@ export class AuthService {
   }
 
   getToken() {
-    return this.token.asObservable();
+    return this.token;
   }
 
   setName(name: string) {
@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   getName() {
-    return this.name.asObservable();
+    return this.name;
   }
 
   logout() {

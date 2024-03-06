@@ -14,6 +14,7 @@ import { FormLoginComponent } from './features/login/components/form-login/form-
 import { BurgerComponent } from './core/components/menu/burger/burger.component';
 import { NavbarComponent } from './core/components/menu/navBar/navbar.component';
 import { RightComponent } from './core/components/menu/rightNav/rightNav.component';
+import { UserComponent } from './core/components/user/user.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { RightComponent } from './core/components/menu/rightNav/rightNav.compone
     FullScreenLoadingComponent,
     BurgerComponent,
     NavbarComponent,
-    RightComponent
+    RightComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

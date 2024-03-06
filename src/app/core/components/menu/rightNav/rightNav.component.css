@@ -1,4 +1,4 @@
-.content {
+.content-right-nav {
   display: none;
   position: fixed;
   top: 0;
@@ -9,23 +9,24 @@
   width: 250px;
   padding-top: 55px;
   transition: transform 0.3s ease-in-out;
-  z-index: -1;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
-  .content {
+  .content-right-nav {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-flow: column nowrap;
     transform: translateX(-130%);
-    /* Initial closed state */
   }
 
-  .content.open {
-    /* Class added when open is true */
+  .content-right-nav img {
+    margin: 0 auto;
+  }
+
+  .content-right-nav.open-right {
     transform: translateX(-20%);
-    /* Open state transform */
   }
 }
 
@@ -39,7 +40,7 @@
   display: flex;
 }
 
-.content-item {
+.content-right-nav-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -47,7 +48,7 @@
   width: 250px;
 }
 
-.content-item img {
+.content-right-nav-item img {
   margin: 0;
   padding: 0;
   width: 80px;

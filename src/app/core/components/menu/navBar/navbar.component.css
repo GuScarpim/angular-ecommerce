@@ -17,6 +17,10 @@
   .content-navbar img {
     display: none;
   }
+
+  user-component {
+    display: none;
+  }
 }
 
 .content-input {
@@ -29,7 +33,7 @@
 
 .content-input input {
   font-size: 1rem;
-  color: #000;
+  color: #4d4c4d;
   outline: none;
   width: 40vw;
   border: none;
@@ -37,11 +41,11 @@
   border-bottom: 2px solid #ccc;
 }
 
-.content-input img {
+.content-input svg, path {
   position: relative;
   left: -45px;
   bottom: 5px;
-  color: #000;
+  fill: #4d4c4d;
   z-index: 2;
   width: 25px;
   height: 25px;
@@ -52,10 +56,12 @@
     position: absolute;
     bottom: 20px;
     gap: 0px;
-    width: 90%;
+    width: 100%;
+    left: 15px;
+    top: 50px;
   }
 
-  .content-input img {
+  .content-input svg, path {
     left: -25px;
   }
 
@@ -91,7 +97,6 @@
 @media (max-width: 768px) {
   .nav {
     padding: 10px;
-    height: 80px;
     width: 100%;
     align-items: baseline;
   }
@@ -114,12 +119,12 @@
   }
 }
 
-.notification img {
-  color: rgb(77, 76, 77);
+.notification svg, path {
+  fill: #4d4c4d;
   margin-right: 5px;
   width: 25px;
   height: 25px;
-  margin-top: -10px;
+  margin-top: -5px;
 }
 
 .notification span {
@@ -127,26 +132,26 @@
   height: 25px;
   font-size: 0.75rem;
   border-radius: 100%;
-  background-color: rgb(106, 188, 70);
+  background-color: #6ABC46;
   font-weight: 700;
-  color: rgb(255, 255, 255);
+  color: #FAFAFA;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: -10px;
+  top: -5px;
   left: 18px;
 }
 
 .icon-search {
-  color: #000;
+  color: #4D4C4D;
   margin-right: 5px;
   width: 25px;
   height: 25px;
 }
 
 @media (max-width: 768px) {
-  .notification img {
+  .notification svg, path {
     display: block;
     margin: 0;
     margin-left: 10px;

@@ -1,10 +1,14 @@
+.content-burger {
+  position: relative;
+}
+
 .burger {
   width: 32px;
   height: 32px;
   position: fixed;
   top: 15px;
   left: 20px;
-  z-index: 3;
+  z-index: 2;
   display: none;
   cursor: pointer;
 }
@@ -15,6 +19,10 @@
     justify-content: space-around;
     flex-flow: column nowrap;
   }
+
+  .content-burger {
+    position: fixed;
+  }
 }
 
 .burger div {
@@ -22,7 +30,7 @@
   height: 4px;
   background-color: #4d4c4d;
   border-radius: 10px;
-  transform-origin: 3px;
+  transform-origin: 1px;
   transition: all 0.3s linear;
 }
 

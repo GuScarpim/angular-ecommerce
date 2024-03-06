@@ -1,0 +1,67 @@
+.content-user {
+  padding-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.content-user svg, path {
+  fill: #4D4C4D;
+  width: 25px;
+  height: 25px;
+}
+
+.content-user span {
+  color: #4D4C4D;
+  font-weight: 400;
+  font-size: 1.125rem;
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .content-user span {
+    color: #FFF;
+    margin: 15px 0 15px 0px;
+  }
+
+  .content-user svg, path {
+    fill: #FFF;
+    margin: 0 auto;
+  }
+}
+
+.dropdown-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #FFF;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  padding: 8px;
+  width: 100px;
+  height: 40px;
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.dropdown-menu p {
+  color: #4D4C4D;
+  font-weight: 400;
+  font-size: 1.125rem;
+  margin: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    left: 30%;
+    max-width: 100px;
+  }
+}

@@ -1,6 +1,8 @@
-<div class="burger" (click)="setOpen()">
-  <div [ngClass]="{'open-child-1': open}"></div>
-  <div [ngClass]="{'open-child-2': open}"></div>
-  <div [ngClass]="{'open-child-3': open}"></div>
+<div class="content-burger">
+  <div class="burger" (click)="setOpen()">
+    <div [ngClass]="{'open-child-1': open}"></div>
+    <div [ngClass]="{'open-child-2': open}"></div>
+    <div [ngClass]="{'open-child-3': open}"></div>
+  </div>
   <rightNav-menu [open]="open"></rightNav-menu>
 </div>
