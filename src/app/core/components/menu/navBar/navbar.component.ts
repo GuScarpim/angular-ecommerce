@@ -24,6 +24,8 @@ export class NavbarComponent {
 
   setOpenModal() {
     this.openModal = !this.openModal;
+
+    console.log(this.openModal)
   }
 
   ngOnInit() {

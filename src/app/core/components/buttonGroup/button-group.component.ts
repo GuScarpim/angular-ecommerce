@@ -12,25 +12,6 @@ export class ButtonGroupComponent {
 
   constructor(private fruitService: FruitService) { }
 
-  ngOnInit(): void {
-    // Exemplo de como usar os observáveis fornecidos pelo FruitService
-    this.fruitService.fruits$.subscribe(fruits => {
-      console.log('Fruits:', fruits);
-    });
-
-    this.fruitService.filteredFruits$.subscribe(filteredFruits => {
-      console.log('Filtered Fruits:', filteredFruits);
-    });
-
-    this.fruitService.totalQuantity$.subscribe(totalQuantity => {
-      console.log('Total Quantity:', totalQuantity);
-    });
-
-    this.fruitService.totalValue$.subscribe(totalValue => {
-      console.log('Total Value:', totalValue);
-    });
-  }
-
   removeFruitById(fruitId: number) {
     this.fruitService.removeFruitById(fruitId);
   }

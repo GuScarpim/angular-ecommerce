@@ -1,5 +1,9 @@
 <div>
-  <!-- <Modal openModal={openModal} title="Fazer checkout" onClose={()=> setOpenModal(false)} /> -->
+  <modal-component
+    [openModal]="openModal"
+    [title]="'Fazer checkout'"
+    [closeModal]="setOpenModal.bind(this)"
+  ></modal-component>
   <div class="nav">
     <div>
       <div class="content-navbar">
@@ -18,7 +22,7 @@
 
         <user-component></user-component>
 
-        <div class="notification" (click)="setOpenModal">
+        <div class="notification" (click)="setOpenModal()">
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clip-path="url(#clip0_578_602)">
               <path

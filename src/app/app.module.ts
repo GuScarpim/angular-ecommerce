@@ -19,6 +19,7 @@ import { UserComponent } from './core/components/user/user.component';
 import { FruitsComponent } from './core/components/fruitsItems/fruits-items.component';
 import { ButtonGroupComponent } from './core/components/buttonGroup/button-group.component';
 import { CardsComponent } from './core/components/cards/cards.component';
+import { ModalComponent } from './core/components/modal/modal.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CardsComponent } from './core/components/cards/cards.component';
     FruitsComponent,
     ButtonGroupComponent,
     CardsComponent,
-    LayoutFooterComponent
+    LayoutFooterComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

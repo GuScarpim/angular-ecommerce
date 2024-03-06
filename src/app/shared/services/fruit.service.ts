@@ -44,7 +44,8 @@ export class FruitService {
     this.filteredFruitsSubject.next(this.filteredFruitsSubject.value.map(fruit => fruit.id === fruitId ? { ...fruit, quantity: Math.max(0, fruit.quantity - 1) } : fruit));
 
     const removedFruit = this.fruitsSubject.value.find(fruit => fruit.id === fruitId);
-    if (removedFruit && removedFruit.quantity > 0) {
+
+    if (removedFruit) {
       const removedFruitValue = removedFruit.value;
       const newTotalQuantity = Math.max(0, this.totalQuantitySubject.value - 1);
       const newTotalValue = Math.max(0, this.totalValueSubject.value - removedFruitValue);
@@ -52,7 +53,6 @@ export class FruitService {
       this.totalValueSubject.next(newTotalValue);
     }
   }
-
   addFruitById(fruitId: number) {
     this.fruitsSubject.next(this.fruitsSubject.value.map(fruit => fruit.id === fruitId ? { ...fruit, quantity: fruit.quantity + 1 } : fruit));
     this.filteredFruitsSubject.next(this.filteredFruitsSubject.value.map(fruit => fruit.id === fruitId ? { ...fruit, quantity: fruit.quantity + 1 } : fruit));
