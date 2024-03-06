@@ -8,12 +8,10 @@
   </div>
   <section class="section">
     <ng-container *ngIf="filteredFruits.length > 0; else noFruitsFound">
-      <ng-container *ngFor="let fruit of filteredFruits">
-        <div class="content">
-        <cards-component *ngFor="let fruit of filteredFruits" [description]="fruit.description" [fruitId]="fruit.id"
-          [quantity]="fruit.quantity" [src]="fruit.src" [title]="fruit.title" [value]="fruit.value"></cards-component>
-        </div>
-      </ng-container>
+      <div class="content" *ngFor="let fruit of filteredFruits">
+        <cards-component [description]="fruit.description" [fruitId]="fruit.id" [quantity]="fruit.quantity"
+          [src]="fruit.src" [title]="fruit.title" [value]="fruit.value"></cards-component>
+      </div>
     </ng-container>
     <ng-template #noFruitsFound>
       <h1 class="title">Nenhuma fruta foi encontrada!</h1>

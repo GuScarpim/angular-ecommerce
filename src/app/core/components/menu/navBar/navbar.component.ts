@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { FruitService } from 'src/app/shared/services/fruit.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { FruitService } from 'src/app/shared/services/fruit.service';
 export class NavbarComponent {
   openModal: boolean = false;
   searchValue: string = '';
+  totalQuantity: number = 0;
+  totalQuantitySubscription: Subscription = new Subscription();
 
   constructor(
     private fruitService: FruitService
@@ -21,5 +24,16 @@ export class NavbarComponent {
 
   setOpenModal() {
     this.openModal = !this.openModal;
+  }
+
+  ngOnInit() {
+    this.totalQuantitySubscription = this.fruitService.totalQuantity$.subscribe(totalQuantity => {
+      this.totalQuantity = totalQuantity;
+    });
+  }
+
+  ngOnDestroy() {
+    // Limpar a assinatura quando o componente for destruído
+    this.totalQuantitySubscription.unsubscribe();
   }
 }

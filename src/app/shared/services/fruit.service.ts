@@ -29,11 +29,12 @@ export class FruitService {
   constructor() { }
 
   setFruits(fruits: IFruit[]) {
-    this.fruitsSubject.next(fruits);
-    this.filteredFruitsSubject.next(fruits);
-
     const newTotalQuantity = fruits.reduce((acc, fruit) => acc + fruit.quantity, 0);
     const newTotalValue = fruits.reduce((acc, fruit) => acc + fruit.value * fruit.quantity, 0);
+
+
+    this.fruitsSubject.next(fruits);
+    this.filteredFruitsSubject.next(fruits);
     this.totalQuantitySubject.next(newTotalQuantity);
     this.totalValueSubject.next(newTotalValue);
   }
