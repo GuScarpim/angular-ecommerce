@@ -9,6 +9,7 @@ import { HomeComponent } from './features/home/home.component';
 import { LoginComponent } from './features/login/login.component';
 import { FullScreenLoadingComponent } from './core/components/fullScreenLoading/full-screen-loading.component';
 import { LayoutLoginComponent } from './core/layouts/login/layoutLogin.component';
+import { LayoutFooterComponent } from './core/layouts/footer/footer.component';
 import { LayoutContainerComponent } from './core/layouts/container/container.component';
 import { FormLoginComponent } from './features/login/components/form-login/form-login.component';
 import { BurgerComponent } from './core/components/menu/burger/burger.component';
@@ -35,7 +36,8 @@ import { CardsComponent } from './core/components/cards/cards.component';
     UserComponent,
     FruitsComponent,
     ButtonGroupComponent,
-    CardsComponent
+    CardsComponent,
+    LayoutFooterComponent
   ],
   imports: [
     BrowserModule,
