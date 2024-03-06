@@ -1,2 +1,22 @@
+<ng-container *ngIf="isLoading">
+  <app-full-screen-loading></app-full-screen-loading>
+</ng-container>
+
 <container-layout>
+  <div class="content-title">
+    <h1 class="title">Frutas</h1>
+  </div>
+  <section class="section">
+    <ng-container *ngIf="filteredFruits.length > 0; else noFruitsFound">
+      <ng-container *ngFor="let fruit of filteredFruits">
+        <div class="content">
+        <cards-component *ngFor="let fruit of filteredFruits" [description]="fruit.description" [fruitId]="fruit.id"
+          [quantity]="fruit.quantity" [src]="fruit.src" [title]="fruit.title" [value]="fruit.value"></cards-component>
+        </div>
+      </ng-container>
+    </ng-container>
+    <ng-template #noFruitsFound>
+      <h1 class="title">Nenhuma fruta foi encontrada!</h1>
+    </ng-template>
+  </section>
 </container-layout>

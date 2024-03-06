@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-interface IFruit {
+export interface IFruit {
   id: number;
   quantity: number;
   src: string;
