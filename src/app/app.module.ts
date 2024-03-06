@@ -15,7 +15,9 @@ import { BurgerComponent } from './core/components/menu/burger/burger.component'
 import { NavbarComponent } from './core/components/menu/navBar/navbar.component';
 import { RightComponent } from './core/components/menu/rightNav/rightNav.component';
 import { UserComponent } from './core/components/user/user.component';
-import { FruitsComponent  } from './core/components/fruitsItems/fruits-items.component';
+import { FruitsComponent } from './core/components/fruitsItems/fruits-items.component';
+import { ButtonGroupComponent } from './core/components/buttonGroup/button-group.component';
+import { CardsComponent } from './core/components/cards/cards.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { FruitsComponent  } from './core/components/fruitsItems/fruits-items.com
     NavbarComponent,
     RightComponent,
     UserComponent,
-    FruitsComponent
+    FruitsComponent,
+    ButtonGroupComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,
