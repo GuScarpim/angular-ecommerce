@@ -15,6 +15,7 @@ import { BurgerComponent } from './core/components/menu/burger/burger.component'
 import { NavbarComponent } from './core/components/menu/navBar/navbar.component';
 import { RightComponent } from './core/components/menu/rightNav/rightNav.component';
 import { UserComponent } from './core/components/user/user.component';
+import { FruitsComponent  } from './core/components/fruitsItems/fruits-items.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { UserComponent } from './core/components/user/user.component';
     BurgerComponent,
     NavbarComponent,
     RightComponent,
-    UserComponent
+    UserComponent,
+    FruitsComponent
   ],
   imports: [
     BrowserModule,
