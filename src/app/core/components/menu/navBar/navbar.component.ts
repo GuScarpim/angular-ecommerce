@@ -12,7 +12,6 @@ export class NavbarComponent {
   searchValue: string = '';
   totalQuantity: number = 0;
   totalQuantitySubscription: Subscription = new Subscription();
-
   constructor(
     private fruitService: FruitService
   ) { }
@@ -35,7 +34,6 @@ export class NavbarComponent {
   }
 
   ngOnDestroy() {
-    // Limpar a assinatura quando o componente for destruído
     this.totalQuantitySubscription.unsubscribe();
   }
 }

@@ -1,7 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { numberFormat } from '../../../shared/utils/format-number';
 import { Subscription } from 'rxjs';
 import { FruitService, IFruit } from '../../../shared/services/fruit.service';
+// import * as pdfMake from 'pdfmake/build/pdfmake.js';
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import { numberFormat } from 'src/app/shared/utils/format-number';
+import { pdfFonts } from 'src/app/shared/utils/vfs_fonts';
+// import { pdfFonts } from 'src/app/shared/utils/vfs_fonts';
 
 @Component({
   selector: 'modal-component',
@@ -24,7 +28,64 @@ export class ModalComponent {
     private fruitService: FruitService
   ) { }
 
-  ngOnInit() {
+  numberFormated(value: number) {
+    return numberFormat(String(value));
+  }
+
+  getImageAsDataUrl = async (src: string) => {
+    const response = await fetch(src);
+    const blob = await response.blob();
+    return new Promise(resolve => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.readAsDataURL(blob);
+    });
+  };
+
+  generatePDF = async () => {
+    const content = await Promise.all(
+      this.fruits
+        .filter(fruit => fruit.quantity > 0)
+        .map(async fruit => {
+          const imageDataUrl = await this.getImageAsDataUrl(fruit.src);
+          return [
+            { image: imageDataUrl, width: 50, height: 50 },
+            { text: `${fruit.title}`, style: 'fruitTitle' },
+            { text: `Quantidade: ${fruit.quantity}`, style: 'fruitInfo' },
+            {
+              text: `Valor: R$ ${numberFormat(
+                String(fruit.value * fruit.quantity),
+              )}`,
+              style: 'fruitInfo',
+            },
+            { text: '\n' },
+          ];
+        }),
+    );
+
+    const documentDefinition: any = {
+      content: [
+        { text: 'Comprovante de Pagamento', style: 'header' },
+        ...content.flat(),
+        { text: `Quantidade de produtos: ${this.totalQuantity}`, style: 'header' },
+        {
+          text: `Valor total: ${numberFormat(String(this.totalValue))}`,
+          style: 'header',
+        },
+      ],
+      styles: {
+        header: { fontSize: 18, bold: true, margin: [0, 0, 0, 10] },
+        fruitTitle: { fontSize: 16, bold: true, margin: [0, 10, 0, 5] },
+        fruitInfo: { fontSize: 14, margin: [0, 0, 0, 5] },
+        fruitDescription: { fontSize: 12, margin: [0, 0, 0, 10] },
+      }
+    };
+
+    (pdfMake as any).vfs = pdfFonts;
+    pdfMake.createPdf(documentDefinition).download('comprovante_frutaFeira_angular.pdf');
+  };
+
+    ngOnInit() {
     this.totalValueSubscription = this.fruitService.totalValue$.subscribe(totalValue => {
       this.totalValue = totalValue;
     });
@@ -40,13 +101,5 @@ export class ModalComponent {
     this.totalValueSubscription.unsubscribe();
     this.totalQuantitySubscription.unsubscribe();
     this.fruitSubscription.unsubscribe();
-  }
-
-  numberFormated(value: number) {
-    return numberFormat(String(value));
-  }
-
-  generatePDF() {
-    return
   }
 }
